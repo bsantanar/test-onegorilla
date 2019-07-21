@@ -1,0 +1,16 @@
+<h1>Image Slider</h1>
+<hr>
+<!-- Slider main container -->
+<div class="swiper-container">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div *ngFor="let image of images" class="swiper-slide" [ngStyle]="{'background-image': 'url('+image.url+')'}">{{image.title}}</div>
+    </div>
+
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+</div>

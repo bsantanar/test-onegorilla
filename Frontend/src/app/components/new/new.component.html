@@ -1,0 +1,53 @@
+<h1>
+    New Value
+</h1>
+<hr>
+
+<form [formGroup]="valueForm" (ngSubmit)="submit()" class="needs-validation fast fadeIn">
+    <div class="form-row">
+        <div class="col-md-4 mb-3">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" name="email" placeholder="johnsmith@mail.com" formControlName="email" [ngClass]="{ 'is-invalid': valueForm.controls.email.errors, 'is-valid': !valueForm.controls.email.errors}">
+            <div *ngIf="valueForm.controls.email.errors" class="invalid-feedback">
+                <div *ngIf="valueForm.controls.email.errors.required">Email is required</div>
+                <div *ngIf="!valueForm.controls.email.errors.valid">Must be an email</div>
+            </div>
+            <div class="valid-feedback">
+                OK!
+            </div>
+        </div>
+        <div class="col-md-2 mb-3">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" name="name" placeholder="John Smith" formControlName="name" [ngClass]="{ 'is-invalid': valueForm.controls.name.errors, 'is-valid': !valueForm.controls.name.errors}">
+            <div *ngIf="valueForm.controls.name.errors" class="invalid-feedback">
+                <div *ngIf="valueForm.controls.name.errors.required">Name is required</div>
+                <div *ngIf="valueForm.controls.name.errors.minlength">Name must have 3 characters</div>
+            </div>
+            <div class="valid-feedback">
+                OK!
+            </div>
+        </div>
+        <div class="col-md-2 mb-3">
+            <label for="n">N Value</label>
+            <input type="number" class="form-control" name="n" formControlName="n" [ngClass]="{ 'is-invalid': valueForm.controls.n.errors, 'is-valid': !valueForm.controls.n.errors}">
+            <div *ngIf="valueForm.controls.n.errors" class="invalid-feedback">
+                <div *ngIf="valueForm.controls.n.errors.required">N Value is required</div>
+                <div *ngIf="valueForm.controls.n.errors.min">N Value minimum is 1</div>
+            </div>
+        </div>
+        <div class="col-md-2 mb-3">
+            <label for="m">M Values</label>
+            <input type="text" class="form-control" name="m" placeholder="1,22,33,2" formControlName="m" [ngClass]="{ 'is-invalid': valueForm.controls.m.errors, 'is-valid': !valueForm.controls.m.errors}">
+            <div *ngIf="valueForm.controls.m.errors" class="invalid-feedback">
+                <div *ngIf="valueForm.controls.m.errors.required">M Value is required</div>
+                <div *ngIf="valueForm.controls.m.errors.valid">Not pattern required</div>
+            </div>
+            <div class="valid-feedback">
+                OK!
+            </div>
+        </div>
+    </div>
+
+
+    <button class="btn btn-success float-right" [ngClass]="{'disabled': !valueForm.valid}">Add</button>
+</form>
